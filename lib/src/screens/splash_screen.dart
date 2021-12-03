@@ -21,7 +21,7 @@ class _SplashState extends State<Splash> {
     Provider.of<MapHelper>(context, listen: false).getLocation();
     super.initState();
     Timer(
-        const Duration(seconds:3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(
             context, MaterialPageRoute(builder: (context) => SigninScreen())));
   }
@@ -29,47 +29,18 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/images/background.jfif'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Center(
-          child: Container(
-            margin: const EdgeInsets.only(top: 150, bottom: 10),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  'assets/images/aqualogo.png',
-                  height: 100,
-                  width: 400,
-                  fit: BoxFit.none,
-                ),
-                const SizedBox(height: 10.0),
-                Text(
-                  "The Best Application For Fish",
-                  style: TextStyle(
-                      color: Colors.blue[400],
-                      fontSize: 20,
-                      fontStyle: FontStyle.normal),
-                ),
-               const  SizedBox(
-                  height: 300,
-                ),
-                Text(
-                  "التطبيق الأفضل و الأدق فى علوم الثروة السمكية",
-                  style: TextStyle(
-                      color: Colors.indigo[900],
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
-            ),
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Container(
+          margin: const EdgeInsets.only(top: 90, bottom: 10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/aqualogo.png',
+              ),
+            ],
           ),
         ),
       ),

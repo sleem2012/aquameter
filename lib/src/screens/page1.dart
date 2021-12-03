@@ -1,4 +1,3 @@
-
 import 'package:aquameter/src/provider/departments.dart';
 import 'package:aquameter/src/screens/page2.dart';
 import 'package:flutter/material.dart';
@@ -90,14 +89,14 @@ class _Page1State extends State<Page1> {
                 )
               ],
             ),
-            const  SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Card(
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              margin:  const EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 left: 13,
                 right: 19,
               ),
@@ -111,7 +110,6 @@ class _Page1State extends State<Page1> {
                       children: [
                         Consumer<DepartMentProvider>(
                             builder: (context, snap, _) {
-                     
                           if (snap.day == null) {
                             return Text('${intl.DateFormat.EEEE(
                               'ar',
@@ -154,21 +152,8 @@ class _Page1State extends State<Page1> {
                 ),
               ),
             ),
-           
-            
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) =>  const EditProfile(),),);
-              },
-              child:  const Icon(
-                Icons.add,
-                size: 40,
-              ),
-              backgroundColor:  const Color(0xff91dced),
-            ),
       ),
     );
   }

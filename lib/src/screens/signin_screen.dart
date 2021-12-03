@@ -1,9 +1,13 @@
 import 'dart:ui';
+import 'package:aquameter/src/Helper/mediaQuery.dart';
+import 'package:aquameter/src/screens/hom_page.dart';
 import 'package:aquameter/src/screens/page1.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'MainWidgets/button_signin.dart';
 import 'MainWidgets/register_secure_text_field.dart';
 import 'package:flutter/cupertino.dart';
+import '';
 
 class SigninScreen extends StatelessWidget {
   final _form = GlobalKey<FormState>();
@@ -12,16 +16,10 @@ class SigninScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        autovalidateMode: AutovalidateMode.always,
-        key: _form,
-        child: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/background.jfif'),
-              fit: BoxFit.cover,
-            ),
-          ),
+      body: SingleChildScrollView(
+        child: Form(
+          autovalidateMode: AutovalidateMode.always,
+          key: _form,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -29,44 +27,36 @@ class SigninScreen extends StatelessWidget {
             children: [
               Image.asset(
                 'assets/images/aqualogo.png',
-                height: 70,
-                width: 200,
-                fit: BoxFit.cover,
+                height: context.height * .4,
               ),
-              Text(
-                "   The Best Application For Fish",
-                style: TextStyle(
-                    color: Colors.blue[400],
-                    fontSize: 13,
-                    fontStyle: FontStyle.normal),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Container(
-                  margin: const EdgeInsets.only(left: 40, right: 40),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(width: 1, color: Colors.blue),
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(15))),
-                  child: Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: TextFormField(
-                        textAlign: TextAlign.right,
-                        validator: (v) {
-                          if (v!.isEmpty) {
-                            return 'يجب عليك ادخال رقم الهاتف';
-                          }
-                          return null;
-                        },
-                        keyboardType: TextInputType.number,
-                        decoration: const InputDecoration(
-                          hintText: "رقم الموبايل",
-                          contentPadding: EdgeInsets.only(right: 10),
-                          border: (InputBorder.none),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Directionality(
+                    textDirection: TextDirection.rtl,
+                    child: Column(
+                      children: [
+                        TextFormField(
+                          textAlign: TextAlign.right,
+                          validator: (v) {
+                            if (v!.isEmpty) {
+                              return 'يجب عليك ادخال رقم الهاتف';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            hintText: "رقم الموبايل",
+                            contentPadding: EdgeInsets.only(right: 10),
+                            border: (InputBorder.none),
+                          ),
                         ),
-                      ))),
+                        Divider(
+                          height: 1.0,
+                          color: Colors.grey.shade900,
+                        )
+                      ],
+                    )),
+              ),
               const SizedBox(
                 height: 15,
               ),
@@ -76,7 +66,7 @@ class SigninScreen extends StatelessWidget {
               ),
               const SizedBox(height: 30),
               SignInButton(
-                txtColor: const Color(0xff247bb5),
+                txtColor: Colors.white70,
                 onPressSignIn: () async {
                   final isValid = _form.currentState!.validate();
                   if (!isValid) {
@@ -84,20 +74,16 @@ class SigninScreen extends StatelessWidget {
                   }
                   _form.currentState!.save();
                   Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: (_) => const  Page1()),
+                    MaterialPageRoute(builder: (_) => const HomePageUi()),
                     (Route<dynamic> route) => false,
                   );
                 },
-                btnWidth: 150.0,
+                btnWidth: 170.0,
                 btnHeight: 45,
-                btnColor: const Color(0xffE5DDD5),
+                btnColor: HexColor("#0e6bad"),
                 bRadius: BorderRadius.circular(50.0),
-                btnShadow: const [
-                  BoxShadow(
-                      color: Colors.black26, spreadRadius: 1, blurRadius: 5)
-                ],
                 buttonText: 'تسجيل الدخول',
-                textSize: 20,
+                textSize: 17,
               ),
               Container(
                 alignment: Alignment.center,
