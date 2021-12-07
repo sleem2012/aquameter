@@ -1,8 +1,6 @@
-
 import 'package:flutter/material.dart';
 
 import 'back_btn.dart';
-
 
 Widget defaultAppBar({
   required BuildContext context,
@@ -17,8 +15,8 @@ Widget defaultAppBar({
     elevation: elevation ?? 4,
     title: Text(
       title,
-      style:  const TextStyle(
-        color: Colors.white,
+      style: const TextStyle(
+        color: Colors.blueGrey,
         fontWeight: FontWeight.bold,
         fontSize: 16,
       ),
@@ -30,9 +28,9 @@ Widget defaultAppBar({
             color: Colors.white,
             onPress: onPress,
           )
-        : icon ??  const SizedBox(),
-    backgroundColor: const  Color(0xffb9e1f6),
-    shape: const  RoundedRectangleBorder(
+        : icon ?? const SizedBox(),
+    backgroundColor: const Color(0xffb9e1f6),
+    shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(10),
         bottomLeft: Radius.circular(10),

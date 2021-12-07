@@ -31,10 +31,7 @@ class _Page1State extends State<Page1> {
   }
 
   DepartMentProvider? departMentProvider;
-  List<Object> name = [
-    'الحاج محمود مصطفي محمد',
-    'مهندس محمد طارق عباس',
-  ];
+  List<Object> name = ['الحاج محمود مصطفي محمد', 'مهندس محمد طارق عباس'];
   List<Object> address = ['كفرالشيخ - طريق بلطيم', 'بورسعيد - مثلث الديبه'];
 
   @override
@@ -63,7 +60,7 @@ class _Page1State extends State<Page1> {
                       borderRadius: BorderRadius.circular(15.0),
                     ),
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      height: MediaQuery.of(context).size.height * 0.12,
                       width: MediaQuery.of(context).size.width * 0.9,
                       child: Column(
                         children: [
@@ -82,6 +79,17 @@ class _Page1State extends State<Page1> {
                                 primary: false,
                                 child: DaysItem(_recentTransactions)),
                           ),
+                          Consumer<DepartMentProvider>(
+                              builder: (context, snap, _) {
+                            if (snap.day == null) {
+                              return Text('${intl.DateFormat.EEEE(
+                                'ar',
+                              ).format(DateTime.now()).toString()}\t${DateTime.now().toString().substring(6, 7)}/${DateTime.now().toString().substring(8, 10)}');
+                            } else {
+                              return Text(
+                                  '${snap.name}\t${snap.month}/${snap.day}');
+                            }
+                          }),
                         ],
                       ),
                     ),
@@ -105,22 +113,6 @@ class _Page1State extends State<Page1> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Consumer<DepartMentProvider>(
-                            builder: (context, snap, _) {
-                          if (snap.day == null) {
-                            return Text('${intl.DateFormat.EEEE(
-                              'ar',
-                            ).format(DateTime.now()).toString()}\t${DateTime.now().toString().substring(6, 7)}/${DateTime.now().toString().substring(8, 10)}');
-                          } else {
-                            return Text(
-                                '${snap.name}\t${snap.month}/${snap.day}');
-                          }
-                        }),
-                      ],
-                    ),
                     const SizedBox(
                       height: 15,
                     ),

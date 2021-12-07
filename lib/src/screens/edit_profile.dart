@@ -1,4 +1,3 @@
-
 import 'package:aquameter/src/provider/location.dart';
 import 'package:aquameter/src/screens/profile_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +18,7 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  int index = 1;
   List<Map<String, dynamic>> listofObject = [
     {'name': 'الغربيه', 'id': 1},
     {'name': 'المنوفية', 'id': 2},
@@ -65,7 +65,7 @@ class _EditProfileState extends State<EditProfile> {
               ),
             ),
             child: Stack(alignment: AlignmentDirectional.topCenter, children: [
-            const   ProfileAppBar(),
+              const ProfileAppBar(),
               Container(
                 margin: const EdgeInsets.only(top: 20),
                 child: ListView(
@@ -77,20 +77,12 @@ class _EditProfileState extends State<EditProfile> {
                       children: [
                         Image.asset(
                           'assets/images/aqualogo.png',
-                          height: 50,
+                          height: 100,
                           width: 120,
-                          fit: BoxFit.cover,
-                        ),
-                        Text(
-                          "   The Best Application For Fish",
-                          style: TextStyle(
-                              color: Colors.blue[400],
-                              fontSize: 13,
-                              fontStyle: FontStyle.normal),
                         ),
                         Container(
                           alignment: Alignment.center,
-                          margin: const EdgeInsets.all(40),
+                          margin: const EdgeInsets.all(30),
                           child: Column(
                             children: <Widget>[
                               CustomBtn(
@@ -110,11 +102,11 @@ class _EditProfileState extends State<EditProfile> {
                                 txtColor: Colors.white,
                                 onTap: () {},
                               ),
-                            const   SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.9,
                                 child: Column(
-                                  children:  const[
+                                  children: const [
                                     SizedBox(
                                       height: 35,
                                       child: RegisterTextField(
@@ -126,8 +118,8 @@ class _EditProfileState extends State<EditProfile> {
                                   ],
                                 ),
                               ),
-                          const     SizedBox(height: 10),
-                            const   SizedBox(
+                              const SizedBox(height: 10),
+                              const SizedBox(
                                 height: 35,
                                 child: RegisterTextField(
                                   hint: 'رقم الموبايل',
@@ -135,7 +127,7 @@ class _EditProfileState extends State<EditProfile> {
                                   type: TextInputType.phone,
                                 ),
                               ),
-                            const   SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
@@ -191,7 +183,7 @@ class _EditProfileState extends State<EditProfile> {
                                                                         'name']),
                                                               ),
                                                             ),
-                                                           const  Divider(),
+                                                            const Divider(),
                                                           ],
                                                         );
                                                       }));
@@ -267,7 +259,7 @@ class _EditProfileState extends State<EditProfile> {
                                                                 ),
                                                               ),
                                                             ),
-                                                          const   Divider(),
+                                                            const Divider(),
                                                           ],
                                                         );
                                                       }));
@@ -290,11 +282,9 @@ class _EditProfileState extends State<EditProfile> {
                                   ),
                                 ],
                               ),
-                             const  SizedBox(height: 10),
+                              const SizedBox(height: 10),
                               InkWell(
-                                onTap: () {
-                            
-                                },
+                                onTap: () {},
                                 child: Container(
                                   height: 35,
                                   decoration: BoxDecoration(
@@ -334,7 +324,7 @@ class _EditProfileState extends State<EditProfile> {
                                   ),
                                 ),
                               ),
-                           const    SizedBox(height: 15),
+                              const SizedBox(height: 15),
                               CustomBtn(
                                 text: "بيانات المزرعة",
                                 color: Colors.blue[400],
@@ -344,217 +334,230 @@ class _EditProfileState extends State<EditProfile> {
                                 onTap: () {},
                               ),
                               const SizedBox(height: 10),
-                              Directionality(
-                                textDirection: TextDirection.rtl,
-                                child: SizedBox(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.9,
-                                  child: Column(
-                                    children: [
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          SizedBox(
-                                            height: 35,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.4,
-                                            child: const RegisterTextField(
-                                              hint: 'مساحة الأرض',
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.3,
-                                            padding: const EdgeInsets.only(
-                                                right: 1, left: 1),
-                                            decoration: BoxDecoration(
-                                              //color: Colors.white,
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: Colors.black38),
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                Radius.circular(100),
-                                              ),
-                                            ),
-                                            child: Row(
+                              LimitedBox(
+                                maxHeight: 300,
+                                child: ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: index,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return Directionality(
+                                      textDirection: TextDirection.rtl,
+                                      child: SizedBox(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.9,
+                                        child: Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(5.0),
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      CustomBottomSheet().show(
-                                                          context: context,
-                                                          child:
-                                                              ListView.builder(
-                                                                  itemCount:
-                                                                      listofMeasuer
-                                                                          .length,
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                          i) {
-                                                                    return Column(
-                                                                      children: [
-                                                                        InkWell(
-                                                                          onTap:
-                                                                              () {
-                                                                            setState(() {
-                                                                              selctedMeasuer = listofMeasuer[i]['name'];
-                                                                            });
-                                                                            Navigator.of(context).pop();
-                                                                          },
-                                                                          child:
-                                                                              Center(
-                                                                            child:
-                                                                                Text(
-                                                                              listofMeasuer[i]['name'],
-                                                                              style:  const TextStyle(fontSize: 20),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                       const  Divider(),
-                                                                      ],
-                                                                    );
-                                                                  }));
-                                                    },
-                                                    child: CircleAvatar(
-                                                      radius: 25,
-                                                      child: const Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        size: 25,
-                                                        color: Colors.white,
-                                                      ),
-                                                      backgroundColor:
-                                                          Theme.of(context)
-                                                              .primaryColor,
-                                                    ),
+                                                SizedBox(
+                                                  height: 35,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.4,
+                                                  child:
+                                                      const RegisterTextField(
+                                                    hint: 'مساحة الأرض',
                                                   ),
                                                 ),
-                                                Text(selctedMeasuer != null
-                                                    ? selctedMeasuer!
-                                                    : 'فدان/ م'),
-                                              ],
-                                            ),
-                                            // height: 35,
-                                            // width: 120,
-                                            // child:
-                                            //   hint: 'فدان/ م',
-                                            //   icon: Icons.keyboard_arrow_down,
-                                            // ),
-                                          ),
-                                        ],
-                                      ),
-                                    const   SizedBox(
-                                        height: 10,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          SizedBox(
-                                            height: 35,
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                0.4,
-                                            child: const RegisterTextField(
-                                              hint: 'إجمالى الأسماك',
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            width: 120,
-                                            padding: const EdgeInsets.only(
-                                                right: 1, left: 1),
-                                            decoration: BoxDecoration(
-                                              //color: Colors.white,
-                                              border: Border.all(
-                                                  width: 1,
-                                                  color: Colors.black38),
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                Radius.circular(100),
-                                              ),
-                                            ),
-                                            child: Row(
-                                              children: [
-                                                Padding(
+                                                Container(
+                                                  height: 35,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.3,
                                                   padding:
-                                                      const EdgeInsets.all(5.0),
-                                                  child: InkWell(
-                                                    onTap: () {
-                                                      CustomBottomSheet().show(
-                                                          context: context,
-                                                          child:
-                                                              ListView.builder(
-                                                                  itemCount:
-                                                                      listofTypes
-                                                                          .length,
-                                                                  itemBuilder:
-                                                                      (context,
-                                                                          i) {
-                                                                    return Column(
-                                                                      children: [
-                                                                        InkWell(
-                                                                          onTap:
-                                                                              () {
-                                                                            setState(() {
-                                                                              selctedType = listofTypes[i]['name'];
-                                                                            });
-                                                                            Navigator.of(context).pop();
-                                                                          },
-                                                                          child:
-                                                                              Center(
-                                                                            child:
-                                                                                Text(
-                                                                              listofTypes[i]['name'],
-                                                                              style: const TextStyle(fontSize: 20),
-                                                                            ),
-                                                                          ),
-                                                                        ),
-                                                                      const   Divider(),
-                                                                      ],
-                                                                    );
-                                                                  }));
-                                                    },
-                                                    child: CircleAvatar(
-                                                      radius: 25,
-                                                      child: const Icon(
-                                                        Icons
-                                                            .keyboard_arrow_down_rounded,
-                                                        size: 25,
-                                                        color: Colors.white,
-                                                      ),
-                                                      backgroundColor:
-                                                          Theme.of(context)
-                                                              .primaryColor,
+                                                      const EdgeInsets.only(
+                                                          right: 1, left: 1),
+                                                  decoration: BoxDecoration(
+                                                    //color: Colors.white,
+                                                    border: Border.all(
+                                                        width: 1,
+                                                        color: Colors.black38),
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                      Radius.circular(100),
                                                     ),
                                                   ),
+                                                  child: Row(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(5.0),
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            CustomBottomSheet().show(
+                                                                context: context,
+                                                                child: ListView.builder(
+                                                                    itemCount: listofMeasuer.length,
+                                                                    itemBuilder: (context, i) {
+                                                                      return Column(
+                                                                        children: [
+                                                                          InkWell(
+                                                                            onTap:
+                                                                                () {
+                                                                              setState(() {
+                                                                                selctedMeasuer = listofMeasuer[i]['name'];
+                                                                              });
+                                                                              Navigator.of(context).pop();
+                                                                            },
+                                                                            child:
+                                                                                Center(
+                                                                              child: Text(
+                                                                                listofMeasuer[i]['name'],
+                                                                                style: const TextStyle(fontSize: 20),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          const Divider(),
+                                                                        ],
+                                                                      );
+                                                                    }));
+                                                          },
+                                                          child: CircleAvatar(
+                                                            radius: 25,
+                                                            child: const Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down_rounded,
+                                                              size: 25,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            backgroundColor:
+                                                                Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                          selctedMeasuer != null
+                                                              ? selctedMeasuer!
+                                                              : 'فدان/ م'),
+                                                    ],
+                                                  ),
+                                                  // height: 35,
+                                                  // width: 120,
+                                                  // child:
+                                                  //   hint: 'فدان/ م',
+                                                  //   icon: Icons.keyboard_arrow_down,
+                                                  // ),
                                                 ),
-                                                Text(selctedType != null
-                                                    ? selctedType!
-                                                    : 'النوع'),
                                               ],
                                             ),
-                                            // height: 35,
-                                            // width: 120,
-                                            // child: RegisterTextField(
-                                            //   hint: 'النوع',
-                                            //   icon: Icons.keyboard_arrow_down,
-                                            // ),
-                                          ),
-                                        ],
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                SizedBox(
+                                                  height: 35,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.4,
+                                                  child:
+                                                      const RegisterTextField(
+                                                    hint: 'إجمالى الأسماك',
+                                                  ),
+                                                ),
+                                                Container(
+                                                  height: 35,
+                                                  width: 120,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 1, left: 1),
+                                                  decoration: BoxDecoration(
+                                                    //color: Colors.white,
+                                                    border: Border.all(
+                                                        width: 1,
+                                                        color: Colors.black38),
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                      Radius.circular(100),
+                                                    ),
+                                                  ),
+                                                  child: Row(
+                                                    children: [
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(5.0),
+                                                        child: InkWell(
+                                                          onTap: () {
+                                                            CustomBottomSheet().show(
+                                                                context: context,
+                                                                child: ListView.builder(
+                                                                    itemCount: listofTypes.length,
+                                                                    itemBuilder: (context, i) {
+                                                                      return Column(
+                                                                        children: [
+                                                                          InkWell(
+                                                                            onTap:
+                                                                                () {
+                                                                              setState(() {
+                                                                                selctedType = listofTypes[i]['name'];
+                                                                              });
+                                                                              Navigator.of(context).pop();
+                                                                            },
+                                                                            child:
+                                                                                Center(
+                                                                              child: Text(
+                                                                                listofTypes[i]['name'],
+                                                                                style: const TextStyle(fontSize: 20),
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          const Divider(),
+                                                                        ],
+                                                                      );
+                                                                    }));
+                                                          },
+                                                          child: CircleAvatar(
+                                                            radius: 25,
+                                                            child: const Icon(
+                                                              Icons
+                                                                  .keyboard_arrow_down_rounded,
+                                                              size: 25,
+                                                              color:
+                                                                  Colors.white,
+                                                            ),
+                                                            backgroundColor:
+                                                                Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                          ),
+                                                        ),
+                                                      ),
+                                                      Text(selctedType != null
+                                                          ? selctedType!
+                                                          : 'النوع'),
+                                                    ],
+                                                  ),
+                                                  // height: 35,
+                                                  // width: 120,
+                                                  // child: RegisterTextField(
+                                                  //   hint: 'النوع',
+                                                  //   icon: Icons.keyboard_arrow_down,
+                                                  // ),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            )
+                                          ],
+                                        ),
                                       ),
-                                    ],
-                                  ),
+                                    );
+                                  },
                                 ),
                               ),
                               Container(
@@ -562,12 +565,13 @@ class _EditProfileState extends State<EditProfile> {
                                 child: TextButton(
                                   child: const Text(' إضافة عدد من نوع آخر ',
                                       style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 10.0,
+                                          color: Colors.blue,
+                                          fontSize: 15.0,
                                           fontWeight: FontWeight.bold)),
                                   onPressed: () {
-                                    // Navigator.of(context).push(MaterialPageRoute(
-                                    //     builder: (_) => ForgetPassword()));
+                                    setState(() {
+                                      index++;
+                                    });
                                   },
                                 ),
                               ),
@@ -578,10 +582,10 @@ class _EditProfileState extends State<EditProfile> {
                                   hint: 'وزن السمكة الابتدائى بالجرام',
                                 ),
                               ),
-                             const  SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
-                            const   SizedBox(
+                              const SizedBox(
                                 height: 35,
                                 width: 205,
                                 child: RegisterTextField(
@@ -593,7 +597,7 @@ class _EditProfileState extends State<EditProfile> {
                         ),
                         CustomBtn(
                           text: "حفظ",
-                          color:  const Color(0xffb9e1f6),
+                          color: const Color(0xffb9e1f6),
                           heigh: 50,
                           weigh: 100,
                           txtColor: Colors.black,
@@ -602,6 +606,9 @@ class _EditProfileState extends State<EditProfile> {
                                 builder: (_) => const ProfileScreen()));
                           },
                         ),
+                        SizedBox(
+                          height: 20,
+                        )
                       ],
                     ),
                   ],

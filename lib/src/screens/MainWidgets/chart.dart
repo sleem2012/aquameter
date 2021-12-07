@@ -6,7 +6,8 @@ class DateTimeComboLinePointChart extends StatelessWidget {
   final List<charts.Series> seriesList;
   final bool? animate;
 
-   const DateTimeComboLinePointChart(this.seriesList, { Key? key,this.animate}) : super(key: key);
+  const DateTimeComboLinePointChart(this.seriesList, {Key? key, this.animate})
+      : super(key: key);
 
   factory DateTimeComboLinePointChart.withSampleData() {
     return DateTimeComboLinePointChart(
@@ -59,13 +60,13 @@ class DateTimeComboLinePointChart extends StatelessWidget {
     ];
 
     return [
-      charts.Series<TimeSeriesSales, DateTime>(
-        id: 'Desktop',
-        colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
-        domainFn: (TimeSeriesSales sales, _) => sales.time,
-        measureFn: (TimeSeriesSales sales, _) => sales.sales,
-        data: desktopSalesData,
-      ),
+      // charts.Series<TimeSeriesSales, DateTime>(
+      //   id: 'Desktop',
+      //   colorFn: (_, __) => charts.MaterialPalette.blue.shadeDefault,
+      //   domainFn: (TimeSeriesSales sales, _) => sales.time,
+      //   measureFn: (TimeSeriesSales sales, _) => sales.sales,
+      //   data: desktopSalesData,
+      // ),
       charts.Series<TimeSeriesSales, DateTime>(
         id: 'Tablet',
         colorFn: (_, __) => charts.MaterialPalette.red.shadeDefault,
