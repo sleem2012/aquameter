@@ -1,13 +1,12 @@
 import 'dart:ui';
-import 'package:aquameter/src/Helper/mediaQuery.dart';
+import 'package:aquameter/src/Helper/helper_method.dart';
 import 'package:aquameter/src/screens/hom_page.dart';
-import 'package:aquameter/src/screens/page1.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'MainWidgets/button_signin.dart';
 import 'MainWidgets/register_secure_text_field.dart';
 import 'package:flutter/cupertino.dart';
-import '';
 
 class SigninScreen extends StatelessWidget {
   final _form = GlobalKey<FormState>();

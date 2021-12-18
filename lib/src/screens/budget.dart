@@ -1,9 +1,13 @@
 import 'package:aquameter/src/screens/MainWidgets/circleChart.dart';
 import 'package:aquameter/src/screens/MainWidgets/custom_btn.dart';
-import 'package:aquameter/src/screens/MainWidgets/profile_appbar.dart';
+import 'package:aquameter/src/screens/MainWidgets/members.dart';
+import 'package:aquameter/src/screens/page2.dart';
 import 'package:flutter/material.dart';
-import 'package:aquameter/src/Helper/mediaQuery.dart';
+import 'package:aquameter/src/Helper/helper_method.dart';
+import 'package:get/get.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
 
+import 'MainWidgets/custom_appbar1.dart';
 import 'MainWidgets/default_appbar.dart';
 
 class BudgetUi extends StatelessWidget {
@@ -13,10 +17,8 @@ class BudgetUi extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        defaultAppBar(
-          context: context,
-          title: 'الميزانيه',
-          elevation: 0,
+       const  CustomAppBar1(
+
         ),
         Padding(
           padding: EdgeInsets.only(
@@ -83,7 +85,7 @@ class BudgetUi extends StatelessWidget {
               ),
               Directionality(
                 textDirection: TextDirection.ltr,
-                child: Container(
+                child: SizedBox(
                   width: context.width * .6,
                   child: Column(
                     children: [
@@ -160,7 +162,18 @@ class BudgetUi extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: context.height * .04,
+          height: context.height * .01,
+        ),
+        CustomBtn(
+          text: "اختر العميل",
+          onTap: () {
+            navigateTo(context, Page2());
+          },
+          color: Colors.transparent,
+          weigh: context.width * .5,
+        ),
+        SizedBox(
+          height: context.height * .02,
         ),
         CustomBtn(
           text: "تحميل التقرير",

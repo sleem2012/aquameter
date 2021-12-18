@@ -606,7 +606,7 @@ class _EditProfileState extends State<EditProfile> {
                                 builder: (_) => const ProfileScreen()));
                           },
                         ),
-                        SizedBox(
+                       const SizedBox(
                           height: 20,
                         )
                       ],

@@ -1,5 +1,7 @@
 // import 'package:aquafish/src/screens/MainWidgets/register_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:aquameter/src/Helper/helper_method.dart';
+import 'package:get/get_utils/src/extensions/context_extensions.dart';
 
 import '../page2.dart';
 // import 'defaultAppbar.dart';
@@ -26,7 +28,7 @@ class CustomAppBar1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const  BoxDecoration(
+      decoration: const BoxDecoration(
         color: Color(0xff91dced),
         borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(40),
@@ -49,18 +51,17 @@ class CustomAppBar1 extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const  Page2(),
+                      builder: (context) => const Page2(),
                     ),
                   );
                 },
               ),
-              SizedBox(
-                  height: 35,
-                  width: 100,
-                  child: Image.asset(
-                    'assets/images/aqua.png',
-                    fit: BoxFit.cover,
-                  )),
+              Image.asset(
+                'assets/images/aqualogo.png',
+                fit: BoxFit.fill,
+                height: context.height * .06,
+                width: context.width * .25,
+              ),
             ],
           ),
 
@@ -70,7 +71,7 @@ class CustomAppBar1 extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
-                  children: const  [
+                  children: const [
                     Text(
                       '1.18',
                       style: TextStyle(
@@ -90,7 +91,7 @@ class CustomAppBar1 extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const  [
+                  children: const [
                     Text(
                       '17',
                       style: TextStyle(
@@ -110,7 +111,7 @@ class CustomAppBar1 extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  children: const  [
+                  children: const [
                     Text(
                       '20',
                       style: TextStyle(
@@ -157,12 +158,12 @@ class CustomAppBar1 extends StatelessWidget {
           //           ),
           //         ),
           //       )
-       
-        const    SizedBox(height: 5),
+
+          const SizedBox(height: 5),
           Container(
             height: 6,
             width: 20,
-            decoration:  const BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xff91dced),
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(5),

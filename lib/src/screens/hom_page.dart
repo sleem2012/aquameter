@@ -1,12 +1,10 @@
 import 'package:aquameter/src/screens/budget.dart';
 import 'package:aquameter/src/screens/page1.dart';
-import 'package:aquameter/src/screens/walletUi.dart';
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
 import 'edit_profile.dart';
-import 'moreUi.dart';
 
 class HomePageUi extends StatefulWidget {
   const HomePageUi({key}) : super(key: key);

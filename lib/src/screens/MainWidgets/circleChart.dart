@@ -2,7 +2,6 @@
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'indicator.dart';
 
 class CircleChart extends StatefulWidget {
   const CircleChart({Key? key}) : super(key: key);
